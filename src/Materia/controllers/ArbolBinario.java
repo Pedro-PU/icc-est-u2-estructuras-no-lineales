@@ -33,5 +33,32 @@ public class ArbolBinario {
             imprimir(node.getLeft());
             imprimir(node.getRight());
         }
+    }(
+
+    public boolean buscar(int value) {
+    return buscarRec(root, value);
     }
+
+    private boolean buscarRec(Node nodo, int value) {
+        if (nodo == null) {
+            System.out.println("No encontrado");
+            return false;
+        }
+
+        int centro = nodo.getValue();
+
+        if (value == centro) {
+            System.out.println("Encontrado");
+            return true;
+        }
+
+        if (value < centro) {
+            System.out.println("IZQUIERDA");
+            return buscarRec(nodo.getLeft(), value);
+        } else {
+            System.out.println("DERECHA");
+            return buscarRec(nodo.getRight(), value);
+        }
+    }
+
 }
